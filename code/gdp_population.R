@@ -29,17 +29,11 @@ ggplot(data=gapminder_1997) +
 RColorBrewer::display.brewer.all()
 
 #load in full gapminder dataset
-gapminder_data <- read_csv("gapminder_data.csv")
+gapminder_data <- read_csv("data/gapminder_data.csv")
 
 dim(gapminder_data)
 head(gapminder_data)
 glimpse(gapminder_data)
-
-ggplot(data = gapminder_data) +
-  aes(x = year , y = lifeExp , color = continent, 
-      group = countries) +
-  geom_line(alpha = 0.5)
-
 
 ggplot(data = gapminder_data) +
   aes(x = continent, y = lifeExp) +
@@ -49,6 +43,8 @@ ggplot(data = gapminder_data) +
   aes(x = continent, y = lifeExp) +
   geom_violin() + 
   geom_jitter(width = 0.15, alpha = 0.2)
+
+ggsave("gdpPercap_lifeExp.png")
 
 
 
