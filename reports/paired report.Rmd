@@ -29,3 +29,7 @@ ggplot(data = gapminder_data) +
   theme_minimal()
 ```
 
+```{r}
+gapminder_data %>% filter(pop > 1e9) %>% select(country) %>% unique()
+```
+
