@@ -9,3 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(tidyverse)
+gapminder_data <- read_csv("C:/Users/moall/OneDrive/Desktop/un-report/un-report/data/gapminder_data.csv")
+
+```
+
