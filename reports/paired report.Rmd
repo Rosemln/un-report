@@ -29,7 +29,21 @@ ggplot(data = gapminder_data) +
   theme_minimal()
 ```
 
-```{r}
+```{r, echo=FALSE}
 gapminder_data %>% filter(pop > 1e9) %>% select(country) %>% unique()
+```
+
+```{r, echo=FALSE}
+gapminder_data %>% 
+  filter(country != 'China' & country != 'India') %>%
+  ggplot() + 
+  aes(x = year, 
+      y = pop) + 
+  scale_color_brewer(palette = "RdYlBu") +
+  labs(x = "Year", 
+       y = "Population")  +
+  geom_point() + 
+  facet_wrap(vars(continent)) +
+  theme(axis.text.x=element_text(angle=90))
 ```
 
