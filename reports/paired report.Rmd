@@ -9,9 +9,23 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, include=FALSE}
 library(tidyverse)
-gapminder_data <- read_csv("C:/Users/moall/OneDrive/Desktop/un-report/un-report/data/gapminder_data.csv")
+#ROSE gapminder_data <- read_csv("C:/Users/moall/OneDrive/Desktop/un-report/un-report/data/gapminder_data.csv")
 
+#Arieanna gapminder_data <- read_csv("C:/Users/ariea/Desktop/un-report/un-report-rosemln/data/gapminder_data.csv")
+
+```
+
+```{r, echo=FALSE}
+ggplot(data = gapminder_data) + 
+  aes(x = year, 
+      y = pop) + 
+  scale_color_brewer(palette = "RdYlBu") +
+  labs(x = "Year", 
+       y = "Population")  +
+  geom_point() + 
+  facet_wrap(vars(continent)) +
+  theme_minimal()
 ```
 
