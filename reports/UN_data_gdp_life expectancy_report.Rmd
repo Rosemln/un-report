@@ -1,0 +1,25 @@
+---
+title: "A un report on th relationship between gdp and life expectancy"
+author: "Rose Mln"
+date: "2024-04-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r package}
+library(tidyverse)
+```
+This is a report and it was prepared for this workshop I am in!
+
+```{r}
+gapminder_1997 <- read_csv("data/gapminder_1997.csv")
+```
+```{r gdp_lifeexp_1997_plot}
+ggplot(data = gapminder_1997) + 
+aes(x = gdpPercap, y = lifeExp, color=continent, size=pop/1000000) + 
+  geom_point() +
+  labs(x="GDP Per Capita", y="Life Expectancy", title="Do people in wealthy countries live longer?", size="Population (in millions)")
+```
